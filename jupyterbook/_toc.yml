@@ -1,16 +1,16 @@
-- file: Introduction
+- file: jupyterbook/Introduction
 
 - part: Exploration
   chapters:
-    - file: notebooks/1-DATA-EXPLORATION
+    - file: jupyterbook/notebooks/1-DATA-EXPLORATION
       title: Data-Exploration
 
 - part: TF-IDF
   chapters:
-    - file: notebooks/A
+    - file: jupyterbook/notebooks/A
       title: TF-IDF
 
 - part: TF-IDF
   chapters:
-    - file: notebooks/B
+    - file: jupyterbook/notebooks/B
       title: TF-IDF
