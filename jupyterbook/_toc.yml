@@ -1,0 +1,16 @@
+- file: Introduction
+
+- part: Exploration
+  chapters:
+    - file: ./notebooks/1-DATA-EXPLORATION.ipynb
+      title: Data-Exploration
+
+- part: Transformers
+  chapters:
+    - file: ./notebooks/2.1-TRANSFORMERS-MODEL-DEVELOPMENT-AND-TRAINING.ipynb
+      title: Transformers
+
+- part: TF-IDF
+  chapters:
+    - file: ./notebooks/2.2-TF-IDF-DEVELOPMENT-AND-TRAINING.ipynb
+      title: TF-IDF
