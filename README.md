@@ -25,14 +25,14 @@ We divided our work in three notebooks:
     
     3 - **2.2-TF-IDF-DEVELOPMENT-AND-TRAINING**. Being unsuccessfull with the Transformer, we implement in this notebook a more classic model based on TF-IDF combined with a balanced random forest. We achieved a decent score of on the validation set.
  
-For enhance visualisation of the notebooks, we deployed a JupyterBook at 
+For enhance visualisation of the notebooks, we deployed a JupyterBook at: 
  
  
 ## Roadmap
 
 * Add MlFlow to do a tracking of our experimentations
 * Test different type of Tokenizers (WordPiece) and check different combinaitions of their parameters.
-* Use a better GOU for the training of the Transformer
+* Use a better GPU for the training of the Transformer
 * Further study the tokenization to use a tokenizer that corresponds to our vocabulary, maybe trained our own tokenizer?
 * Use the correlation between some category_id (as they belong to the same l1_category_name) to tune the loss to take into account this correlation in a quadratic term
   
