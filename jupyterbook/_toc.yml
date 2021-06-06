@@ -7,10 +7,5 @@
 
 - part: TF-IDF
   chapters:
-    - file: jupyterbook/notebooks/A
-      title: TF-IDF
-
-- part: TF-IDF
-  chapters:
     - file: jupyterbook/notebooks/B
       title: TF-IDF
