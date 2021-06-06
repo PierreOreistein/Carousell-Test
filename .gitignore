@@ -1,4 +1,11 @@
 ##########################
+# CAROUSELL CONFIDENTIAL FILES
+# Skip data files
+Data/*
+TakeHomeAssignmentCarousell.pdf
+
+
+##########################
 # KEDRO PROJECT
 
 # ignore all local configuration
