@@ -25,7 +25,7 @@ We divided our work in three notebooks:
     
     3 - **2.2-TF-IDF-DEVELOPMENT-AND-TRAINING**. Being unsuccessfull with the Transformer, we implement in this notebook a more classic model based on TF-IDF combined with a balanced random forest. We achieved a decent score of on the validation set.
  
-For enhance visualisation of the notebooks, we deployed a JupyterBook at: 
+For enhance visualisation of the notebooks, we deployed a JupyterBook at: https://pierreoreistein.github.io/Carousell-Test/
  
  
 ## Roadmap
