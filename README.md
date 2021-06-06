@@ -18,8 +18,11 @@ pre-commit install
 ## Organisation of the Project
 
 We divided our work in three notebooks:
+
     1 - **1-DATA-EXPLORATION** for the exploration of the data. In this notebook, we pay extra attention to the consistency of the data, the relationship between the different columns and we do an extensive analysis of the 'price' feature.
+    
     2 - **2.1-TRANSFORMERS-MODEL-DEVELOPMENT-AND-TRAINING**, we implement a Tokenizer-Transformer model based on the pre-trained neural network model: 'Albertv2'. Unfortunately, despite a training on a GPU, our computationnal power was too limited for the training of such a model.
+    
     3 - **2.2-TF-IDF-DEVELOPMENT-AND-TRAINING**. Being unsuccessfull with the Transformer, we implement in this notebook a more classic model based on TF-IDF combined with a balanced random forest. We achieved a decent score of on the validation set.
  
 For enhance visualisation of the notebooks, we deployed a JupyterBook at 
