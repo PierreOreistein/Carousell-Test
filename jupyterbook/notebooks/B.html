@@ -1,0 +1,1146 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0 - Information &#8212;  TurboFan-Failure-Prediction </title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="0 - Information" href="1-DATA-EXPLORATION.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title"> TurboFan-Failure-Prediction </h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Exploration
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1-DATA-EXPLORATION.html">
+   0 - Information
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  TF-IDF
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   0 - Information
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/jupyterbook/notebooks/B.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   0 - Information
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#packages">
+   1 - Packages
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mainstream-packages">
+     1.1 - Mainstream Packages
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#personnal-utils">
+     1.2 - Personnal Utils
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data-and-global-parameters">
+   2 - Load Data and Global Parameters
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-data">
+     2.1 - Load Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global-parameters">
+     2.2 - Global Parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning-and-preparation">
+   3 - Data Cleaning and Preparation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comments">
+     Comments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-cleaning-and-preparation-for-model-ingestion">
+     3.1 - Data Cleaning and Preparation for Model Ingestion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tokenization-of-the-sentences-build-models-inputs">
+   4 - Tokenization of the Sentences &amp; Build Models Inputs
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-the-training-set-into-a-training-and-a-validation-set">
+     4.1 - Split the Training set into a training and a validation set
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenize-and-stemmization-of-the-text">
+     4.2 - Tokenize and stemmization of the text
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-fine-tuning">
+   5 - Model Fine Tuning
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Comments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fit-a-tf-idf-model">
+     5.1 - Fit a TF-IDF Model
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-fitting-svc">
+     5.2 - Model Fitting: SVC
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-training">
+     5.3 - Model Training
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-the-result">
+   6 - Analysis of the result
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compute-the-prediction">
+   7 - Compute the Prediction
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="information">
+<h1>0 - Information<a class="headerlink" href="#information" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author: Pierre Oreistein</span>
+<span class="c1"># Last edit: 06/06/2021</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="packages">
+<h1>1 - Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="mainstream-packages">
+<h2>1.1 - Mainstream Packages<a class="headerlink" href="#mainstream-packages" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Maths packages</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Data Handling Packages</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Machine Learning Packages</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils.class_weight</span> <span class="kn">import</span> <span class="n">compute_class_weight</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">make_scorer</span><span class="p">,</span> <span class="n">balanced_accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+
+<span class="kn">from</span> <span class="nn">xgboost.sklearn</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
+
+<span class="c1"># NLP Packages</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.wordnet</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">contractions</span> <span class="kn">import</span> <span class="n">fix</span>
+
+<span class="c1"># Graphics Packages</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span><span class="p">;</span> <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="c1"># Utils</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">from</span> <span class="nn">colorama</span> <span class="kn">import</span> <span class="n">Fore</span><span class="p">,</span> <span class="n">Back</span><span class="p">,</span> <span class="n">Style</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span><span class="p">;</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">pandas</span><span class="p">()</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># Static Type Checking</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+<div class="section" id="personnal-utils">
+<h2>1.2 - Personnal Utils<a class="headerlink" href="#personnal-utils" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">COLOR</span><span class="p">:</span>
+    <span class="n">PURPLE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[95m&#39;</span>
+    <span class="n">CYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[96m&#39;</span>
+    <span class="n">DARKCYAN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[36m&#39;</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[94m&#39;</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[92m&#39;</span>
+    <span class="n">YELLOW</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[93m&#39;</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[91m&#39;</span>
+    <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[1m&#39;</span>
+    <span class="n">UNDERLINE</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[4m&#39;</span>
+    <span class="n">END</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\033</span><span class="s1">[0m&#39;</span>
+    
+<span class="k">def</span> <span class="nf">display_check</span><span class="p">(</span><span class="n">boolean</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display the boolean with color and bold for easier understanding.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If the boolean is True</span>
+    <span class="k">if</span> <span class="n">boolean</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="n">Back</span><span class="o">.</span><span class="n">GREEN</span> <span class="o">+</span> <span class="s2">&quot;True&quot;</span> <span class="o">+</span> <span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">COLOR</span><span class="o">.</span><span class="n">BOLD</span> <span class="o">+</span> <span class="n">Back</span><span class="o">.</span><span class="n">RED</span> <span class="o">+</span> <span class="s2">&quot;False&quot;</span> <span class="o">+</span> <span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span>
+    
+<span class="k">def</span> <span class="nf">display_title</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Display title&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;----- </span><span class="si">{</span><span class="n">COLOR</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">Style</span><span class="o">.</span><span class="n">RESET_ALL</span><span class="si">}</span><span class="s2"> -----&quot;</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">display_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Pretty display inside Jupyter Notebook of DataFrames.&quot;&quot;&quot;</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_html</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data-and-global-parameters">
+<h1>2 - Load Data and Global Parameters<a class="headerlink" href="#load-data-and-global-parameters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="load-data">
+<h2>2.1 - Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
+<span class="n">train_raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/01_Raw_Data/train.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the raw data</span>
+<span class="n">display_dataframe</span><span class="p">(</span><span class="n">train_raw_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>l1_category_name</th>
+      <th>l2_category_name</th>
+      <th>l3_category_name</th>
+      <th>title</th>
+      <th>category_id</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>7f1f33cf-a59a-4114-8f9e-cf3effaa2341</td>
+      <td>Men's Fashion</td>
+      <td>Men's Watches</td>
+      <td>NaN</td>
+      <td>Fossil Leather Watch</td>
+      <td>20</td>
+      <td>100.56</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>88765cd5-3f53-403c-841a-12dc367843c9</td>
+      <td>Men's Fashion</td>
+      <td>Men's Watches</td>
+      <td>NaN</td>
+      <td>* FREE DELIVERY * JDM Brand New 100% Authentic Seiko Presage White Dial &amp; Blue Hands Men's Automatic Dress Watch SARX033</td>
+      <td>20</td>
+      <td>1008.37</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>264e2900-ba35-4ac0-8858-e2fcb0909e6d</td>
+      <td>Men's Fashion</td>
+      <td>Men's Watches</td>
+      <td>NaN</td>
+      <td>St Dupont Classic Pen</td>
+      <td>20</td>
+      <td>220.31</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ffc7337a-7d04-4fa8-a136-ac9d8413f8e8</td>
+      <td>Men's Fashion</td>
+      <td>Men's Watches</td>
+      <td>NaN</td>
+      <td>CASIO G-SHOCK GX-56BB-1DR / GX-56BB-1D / GX-56BB-1 / GX-56BB TOUGH SOLAR WATCH</td>
+      <td>20</td>
+      <td>104.95</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>34a2e32c-db54-4aff-b89d-173bacbac346</td>
+      <td>Men's Fashion</td>
+      <td>Men's Watches</td>
+      <td>NaN</td>
+      <td>Fossil Townsman Twist ME1164P</td>
+      <td>20</td>
+      <td>166.37</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the data</span>
+<span class="n">X_test_raw_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./Data/01_Raw_Data/test.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the raw data</span>
+<span class="n">display_dataframe</span><span class="p">(</span><span class="n">X_test_raw_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>c90123c0-09a2-4d0d-8ddd-447cd12edd4a</td>
+      <td>Yeezy boost 350 V2 Core Black/Ref</td>
+      <td>402.41</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>e1dc8ac7-6a89-4ef9-a790-3f4d0835aaf7</td>
+      <td>Nakamichi Sports Bluetooth Earphones</td>
+      <td>44.93</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>520743b2-6c83-4ba9-98a2-3d2fff697fa2</td>
+      <td>Tefal Steam Cuisine 900 Turbo Diffusion</td>
+      <td>104.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>e5136110-bd9b-4011-81f3-de904d916c91</td>
+      <td>B5 Lofter High Gain Wireless USB Adapter 1200Mbps</td>
+      <td>21.64</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a459aa14-7e28-4a95-8c98-690509c373db</td>
+      <td>Taiwan Customize Handmade APO Float</td>
+      <td>41.60</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="global-parameters">
+<h2>2.2 - Global Parameters<a class="headerlink" href="#global-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the number of classes</span>
+<span class="n">CLASSES_L</span> <span class="o">=</span> <span class="n">train_raw_df</span><span class="o">.</span><span class="n">category_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">NUM_CLASSES</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">CLASSES_L</span><span class="p">)</span>
+
+<span class="n">display_title</span><span class="p">(</span><span class="s2">&quot;Number of classes to distinguish&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of classes to predict? </span><span class="si">{</span><span class="n">NUM_CLASSES</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Compute class weights</span>
+<span class="n">CLASS_WEIGHTS_L</span> <span class="o">=</span> <span class="n">compute_class_weight</span><span class="p">(</span>
+    <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">,</span>
+    <span class="n">classes</span><span class="o">=</span><span class="n">CLASSES_L</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">train_raw_df</span><span class="o">.</span><span class="n">category_id</span><span class="o">.</span><span class="n">values</span>
+<span class="p">)</span>
+<span class="n">CLASS_WEIGHTS_DCT</span> <span class="o">=</span> <span class="p">{</span><span class="n">category_id</span><span class="p">:</span> <span class="n">CLASS_WEIGHTS_L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">category_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">CLASSES_L</span><span class="p">)}</span>
+
+<span class="n">display_title</span><span class="p">(</span><span class="s2">&quot;Class Weights&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">CLASS_WEIGHTS_DCT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Random state</span>
+<span class="n">RANDOM_STATE</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>----- <span class=" -Color -Color-Bold"> Number of classes to distinguish </span> -----
+Number of classes to predict? 26
+
+
+----- <span class=" -Color -Color-Bold"> Class Weights </span> -----
+{1: 0.6100051433823219,
+ 2: 0.844344852537843,
+ 3: 0.8675100425684993,
+ 4: 2.157842932561816,
+ 5: 0.6474784087349532,
+ 6: 0.5414025608597065,
+ 7: 2.433352393125021,
+ 8: 21.823831070889895,
+ 9: 1.9130549752756696,
+ 10: 7.675968169761274,
+ 11: 0.636809351536437,
+ 12: 0.3995030095532608,
+ 13: 4.113138893626698,
+ 14: 8.269059321065265,
+ 15: 0.5535737514251391,
+ 16: 0.3001335844610572,
+ 17: 17.445382204002893,
+ 18: 1.520097493328851,
+ 19: 9.90227210511908,
+ 20: 1.1154694173335185,
+ 21: 0.44205869593112423,
+ 22: 1.4931786753627376,
+ 23: 60.48996655518395,
+ 24: 1.325018315018315,
+ 25: 0.5705430513714295,
+ 26: 3.1782278258577517}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-cleaning-and-preparation">
+<h1>3 - Data Cleaning and Preparation<a class="headerlink" href="#data-cleaning-and-preparation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="comments">
+<h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h2>
+<p>Please find below our modelisation hypotheses and choices:</p>
+<ul class="simple">
+<li><p>Following our observations in the notebook “1-DATA-EXPLORATION”, we will discard for simplicity for now the feature ‘price’ as it presents several difficulties (low information content, null values, extremely high values, etc)</p></li>
+</ul>
+</div>
+<div class="section" id="data-cleaning-and-preparation-for-model-ingestion">
+<h2>3.1 - Data Cleaning and Preparation for Model Ingestion<a class="headerlink" href="#data-cleaning-and-preparation-for-model-ingestion" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">data_preprocessing</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Preprocess the dataFrame and prepare it for model ingestion.&quot;&quot;&quot;</span>
+    <span class="c1"># Create a new copy of df</span>
+    <span class="n">new_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Set the column &quot;id&quot; as the index</span>
+    <span class="n">new_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># Keep only the columns &quot;category_id&quot; if it exists and &quot;title&quot;</span>
+    <span class="c1"># The column &#39;price&#39; is dropped for now</span>
+    <span class="n">columns_to_drop_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">new_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;category_id&quot;</span><span class="p">]]</span>
+    <span class="n">new_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">columns_to_drop_l</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">new_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocess the data for cleaning</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">(</span><span class="n">train_raw_df</span><span class="p">)</span>
+<span class="n">X_test_df</span> <span class="o">=</span> <span class="n">data_preprocessing</span><span class="p">(</span><span class="n">X_test_raw_df</span><span class="p">)</span>
+
+<span class="c1"># And save the preprocess dataframe</span>
+<span class="n">train_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./Data/02_Data_Features/train.csv&quot;</span><span class="p">)</span>
+<span class="n">X_test_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./Data/02_Data_Features/X_test.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display the resulting dataFrames</span>
+<span class="n">display_dataframe</span><span class="p">(</span><span class="n">train_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>category_id</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7f1f33cf-a59a-4114-8f9e-cf3effaa2341</th>
+      <td>Fossil Leather Watch</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>88765cd5-3f53-403c-841a-12dc367843c9</th>
+      <td>* FREE DELIVERY * JDM Brand New 100% Authentic Seiko Presage White Dial &amp; Blue Hands Men's Automatic Dress Watch SARX033</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>264e2900-ba35-4ac0-8858-e2fcb0909e6d</th>
+      <td>St Dupont Classic Pen</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>ffc7337a-7d04-4fa8-a136-ac9d8413f8e8</th>
+      <td>CASIO G-SHOCK GX-56BB-1DR / GX-56BB-1D / GX-56BB-1 / GX-56BB TOUGH SOLAR WATCH</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>34a2e32c-db54-4aff-b89d-173bacbac346</th>
+      <td>Fossil Townsman Twist ME1164P</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenization-of-the-sentences-build-models-inputs">
+<h1>4 - Tokenization of the Sentences &amp; Build Models Inputs<a class="headerlink" href="#tokenization-of-the-sentences-build-models-inputs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="split-the-training-set-into-a-training-and-a-validation-set">
+<h2>4.1 - Split the Training set into a training and a validation set<a class="headerlink" href="#split-the-training-set-into-a-training-and-a-validation-set" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">prepare_model_training_inputs</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+    <span class="n">test_size</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="n">NUM_CLASSES</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">]]:</span>
+    <span class="sd">&quot;&quot;&quot;Prepare model inputs.&quot;&quot;&quot;</span>
+    <span class="c1"># Divide the training set between a training and validation set</span>
+    <span class="n">X_train_df</span><span class="p">,</span> <span class="n">y_train_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;category_id&quot;</span><span class="p">]</span>
+        
+    <span class="c1"># Split the training set into a training and validation set</span>
+    <span class="n">X_train</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+        <span class="n">X_train_df</span><span class="p">,</span>
+        <span class="n">y_train_df</span><span class="p">,</span>
+        <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="n">RANDOM_STATE</span><span class="p">,</span>
+        <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">stratify</span><span class="o">=</span><span class="n">y_train_df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>   
+    <span class="p">)</span>   
+    <span class="c1"># Convert to dataFrames</span>
+    <span class="n">X_train_df</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+    <span class="n">X_val_df</span> <span class="o">=</span> <span class="n">X_val</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;title&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># Append the ground truth as a label</span>
+    <span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_train</span>
+    <span class="n">X_val_df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_val</span>
+    
+    <span class="k">return</span> <span class="n">X_train_df</span><span class="p">,</span> <span class="n">X_val_df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the training set</span>
+<span class="n">X_train_df</span><span class="p">,</span> <span class="n">X_val_df</span> <span class="o">=</span> <span class="n">prepare_model_training_inputs</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="c1"># Display resulting traning set</span>
+<span class="n">display_dataframe</span><span class="p">(</span><span class="n">X_train_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>label</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4d084e8b-4209-4057-be73-62d04469db17</th>
+      <td>BNWT Superga Navy Sneakers</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>27d5392d-ef1d-4ca6-8951-7d87048541cd</th>
+      <td>Hollister</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>254fb7a2-fad6-44a8-a7de-4c4c2c3e0244</th>
+      <td>Jeffree star lip gloss midnight lick</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>b77f33f1-ba41-4b10-9577-e65c9d09852d</th>
+      <td>Etude House Powder Rouge Tint #MoreRed</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>fb6d1ab8-a4bd-4e93-b28c-5200b58452ee</th>
+      <td>WMF child’s set 4 pcs Teddy</td>
+      <td>16</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_dataframe</span><span class="p">(</span><span class="n">X_val_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+      <th>label</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ce759da2-157b-4508-95c1-75141cc32cbc</th>
+      <td>Yeezy Boost 350 “Yecheil” Non Reflective</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>0f9957ea-d96c-4aaf-a5e7-8756767b9356</th>
+      <td>Music sight reading grade 4</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>7a14231b-e7a0-4973-a076-ef83f3a4eb7d</th>
+      <td>Empire Ears EVR UIEM, BNIB</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>e13998d0-00a5-4abc-857c-112b3d61e53c</th>
+      <td>Commercial Microwave ( SG warranty / Commercial ) Brand New</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>18b196e7-33f0-442c-b322-b764934107f3</th>
+      <td>Mini Sinningia Pirate’s Skyline</td>
+      <td>18</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display_dataframe</span><span class="p">(</span><span class="n">X_test_df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>c90123c0-09a2-4d0d-8ddd-447cd12edd4a</th>
+      <td>Yeezy boost 350 V2 Core Black/Ref</td>
+    </tr>
+    <tr>
+      <th>e1dc8ac7-6a89-4ef9-a790-3f4d0835aaf7</th>
+      <td>Nakamichi Sports Bluetooth Earphones</td>
+    </tr>
+    <tr>
+      <th>520743b2-6c83-4ba9-98a2-3d2fff697fa2</th>
+      <td>Tefal Steam Cuisine 900 Turbo Diffusion</td>
+    </tr>
+    <tr>
+      <th>e5136110-bd9b-4011-81f3-de904d916c91</th>
+      <td>B5 Lofter High Gain Wireless USB Adapter 1200Mbps</td>
+    </tr>
+    <tr>
+      <th>a459aa14-7e28-4a95-8c98-690509c373db</th>
+      <td>Taiwan Customize Handmade APO Float</td>
+    </tr>
+  </tbody>
+</table></div></div>
+</div>
+</div>
+<div class="section" id="tokenize-and-stemmization-of-the-text">
+<h2>4.2 - Tokenize and stemmization of the text<a class="headerlink" href="#tokenize-and-stemmization-of-the-text" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_text</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Preprocess the text for the training.&quot;&quot;&quot;</span>
+    <span class="c1"># Check if the text if nan</span>
+    <span class="k">if</span> <span class="n">text</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+    
+    <span class="c1"># 1 - Tokenization of the text</span>
+    <span class="n">tokens_l</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+    
+    <span class="c1"># 2 - Lowercase</span>
+    <span class="n">tokens_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens_l</span><span class="p">]</span>
+    
+    <span class="c1"># 3 - Remove stop words</span>
+    <span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">([</span><span class="s1">&#39;english&#39;</span><span class="p">]))</span>
+    <span class="n">tokens_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens_l</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+    
+    <span class="c1"># 4 - Expands contraction</span>
+    <span class="n">tokens_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">fix</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens_l</span><span class="p">]</span>
+    
+    <span class="c1"># 5 - Lemmization</span>
+    <span class="n">lmr</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+    <span class="n">tokens_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">lmr</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens_l</span><span class="p">]</span>
+    
+    <span class="c1"># 6 - Convert the list as a string</span>
+    <span class="n">final_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tokens_l</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">final_text</span>   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocess the text</span>
+<span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="n">preprocess_text</span><span class="p">)</span>
+<span class="n">X_val_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_val_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="n">preprocess_text</span><span class="p">)</span>
+<span class="n">X_test_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">progress_apply</span><span class="p">(</span><span class="n">preprocess_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-fine-tuning">
+<h1>5 - Model Fine Tuning<a class="headerlink" href="#model-fine-tuning" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Comments<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="fit-a-tf-idf-model">
+<h2>5.1 - Fit a TF-IDF Model<a class="headerlink" href="#fit-a-tf-idf-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&quot;[ &#39;bnwt &#39; , &#39;superga &#39; , &#39;navy &#39; , &#39;sneaker &#39; ]&quot;,
+       &quot;[ &#39;hollister &#39; ]&quot;,
+       &quot;[ &#39;jeffree &#39; , &#39;star &#39; , &#39;lip &#39; , &#39;gloss &#39; , &#39;midnight &#39; , &#39;lick &#39; ]&quot;,
+       ...,
+       &quot;[ &#39;breville &#39; , &#39;bes840 &#39; , &#39;infuser &#39; , &#39;espresso &#39; , &#39;smart &#39; , &#39;grinder &#39; , &#39;pro &#39; ]&quot;,
+       &quot;[ &#39;barbie &#39; , &#39;shoe &#39; ]&quot;, &quot;[ &#39;unisex &#39; , &#39;gshock &#39; ]&quot;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For each sample count the presence of each word (token)</span>
+<span class="n">countVect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">X_train_counts</span> <span class="o">=</span> <span class="n">countVect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># Apply the TF-IDF transform</span>
+<span class="n">tfidf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">()</span>
+<span class="n">X_train_tfidf</span> <span class="o">=</span> <span class="n">tfidf_transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-fitting-svc">
+<h2>5.2 - Model Fitting: SVC<a class="headerlink" href="#model-fitting-svc" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the parameters of the GridSearch</span>
+<span class="n">params_dct</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">300</span><span class="p">],</span>
+    <span class="s2">&quot;max_depth&quot;</span><span class="p">:[</span><span class="kc">None</span><span class="p">],</span>
+    <span class="s2">&quot;min_samples_split&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="c1"># params_dct = {</span>
+<span class="c1">#     &quot;n_estimators&quot;: [10, 50, 100],</span>
+<span class="c1">#     &quot;max_depth&quot;: [2, 5, 10],</span>
+<span class="c1">#      &quot;min_child_weight&quot;: [0, 1, 10],</span>
+<span class="c1"># }</span>
+
+<span class="c1"># Define the model: a Support Vector Classifier</span>
+<span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#rf = XGBClassifier(random_state=RANDOM_STATE)</span>
+
+<span class="c1"># Define the GridSearch</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span>
+    <span class="n">estimator</span><span class="o">=</span><span class="n">rf</span><span class="p">,</span>
+    <span class="n">param_grid</span><span class="o">=</span><span class="n">params_dct</span><span class="p">,</span>
+    <span class="n">scoring</span><span class="o">=</span><span class="n">make_scorer</span><span class="p">(</span><span class="n">balanced_accuracy_score</span><span class="p">),</span>
+    <span class="n">n_jobs</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+    <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">cv</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span>
+    <span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-training">
+<h2>5.3 - Model Training<a class="headerlink" href="#model-training" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_tfidf</span><span class="p">,</span> <span class="n">X_train_df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Display score</span>
+<span class="n">display_title</span><span class="p">(</span><span class="s2">&quot;Best Results&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Best balanced accuracy obtained: </span><span class="si">{</span><span class="n">clf</span><span class="o">.</span><span class="n">best_score_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameters of the best model: </span><span class="si">{</span><span class="n">clf</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 2 folds for each of 2 candidates, totalling 4 fits
+
+
+----- <span class=" -Color -Color-Bold"> Best Results </span> -----
+Best balanced accuracy obtained: 0.8013676595573023
+Parameters of the best model: {&#39;max_depth&#39;: None, &#39;min_samples_split&#39;: 10, &#39;n_estimators&#39;: 300}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analysis-of-the-result">
+<h1>6 - Analysis of the result<a class="headerlink" href="#analysis-of-the-result" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_val</span> <span class="o">=</span> <span class="n">tfidf_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">countVect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">X_val_df</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sklearn.metrics._plot.confusion_matrix.ConfusionMatrixDisplay at 0x7fa2ad010710&gt;
+</pre></div>
+</div>
+<img alt="../../_images/B_37_1.png" src="../../_images/B_37_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="compute-the-prediction">
+<h1>7 - Compute the Prediction<a class="headerlink" href="#compute-the-prediction" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the prediction</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">tfidf_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">countVect</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test_df</span><span class="p">[</span><span class="s2">&quot;title&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Extract the top-3 for each prediction</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="o">-</span><span class="mi">3</span><span class="p">:]</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">y_test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X_test_df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Top-1&quot;</span><span class="p">,</span> <span class="s2">&quot;Top-2&quot;</span><span class="p">,</span> <span class="s2">&quot;Top-3&quot;</span><span class="p">])</span>
+
+<span class="c1"># Save the predictions</span>
+<span class="n">y_test_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;./Data/05_Model_Outputs/y_test.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Save the predictions in the main folder</span>
+<span class="n">y_test_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;y_test.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 4.64447308e-02 0.00000000e+00 0.00000000e+00 5.46997629e-04
+ 0.00000000e+00 0.00000000e+00 9.53008272e-01 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00 0.00000000e+00 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./jupyterbook/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1-DATA-EXPLORATION.html" title="previous page">0 - Information</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By FieldBox.ai<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
